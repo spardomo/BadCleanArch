@@ -3,13 +3,7 @@ using System;
 namespace Infrastructure.Logging { 
     public static class Logger
     {
-        private static bool _enabled = true;
-        public static bool Enabled
-        {
-            get => _enabled;
-            set => _enabled = value;
-        }
-
+        public static bool Enabled { get; set; } = true;
         public static void Log(string message)
         {
             if (!Enabled) return;
@@ -18,11 +12,11 @@ namespace Infrastructure.Logging {
 
         public static void Try(Action a)
         {
-            try 
-            { 
-                a(); 
-            } 
-            catch(Exception ex) 
+            try
+            {
+                a();
+            }
+            catch (Exception ex)
             {
                 Console.Error.WriteLine("[Logger.Try] " + ex);
             }
