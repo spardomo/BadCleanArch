@@ -11,8 +11,8 @@ public class Order
     public int Quantity { get; private set; }
     public decimal UnitPrice { get; private set; }
 
-    public void CalculateTotalAndLog()
+    public void CalculateTotal()
     {
-        var total = Quantity * UnitPrice; 
+        return Quantity * UnitPrice;
     }
 }
