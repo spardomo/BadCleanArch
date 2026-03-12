@@ -11,8 +11,8 @@ namespace Infrastructure.Data
 
         public static int ExecuteNonQueryUnsafe(string sql)
         {
-            var conn = new SqlConnection(ConnectionString);
-            var cmd = new SqlCommand(sql, conn);
+            using var conn = new SqlConnection(ConnectionString);
+            using var cmd = new SqlCommand(sql, conn);
             conn.Open();
             return cmd.ExecuteNonQuery();
         }
@@ -22,7 +22,7 @@ namespace Infrastructure.Data
             var conn = new SqlConnection(ConnectionString);
             var cmd = new SqlCommand(sql, conn);
             conn.Open();
-            return cmd.ExecuteReader();
+            return cmd.ExecuteReader(CommandBehavior.CloseConnection);
         }
     }
 }
