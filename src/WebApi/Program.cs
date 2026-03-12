@@ -21,7 +21,7 @@ if (app.Environment.IsDevelopment())
 }
 
 BadDb.ConnectionString = app.Configuration["ConnectionStrings:Sql"]
-    ?? "Server=localhost;Database=master;User Id=sa;Password=SuperSecret123!;TrustServerCertificate=True";
+    ?? throw new InvalidOperationException("Falta la cadena de conexión 'ConnectionStrings:Sql'. Configúrela en appsettings o como variable de entorno.");
 
 app.UseCors("bad");
 
