@@ -13,6 +13,6 @@ public class Order
 
     public void CalculateTotal()
     {
-        return Quantity * UnitPrice;
+        var total = Quantity * UnitPrice;
     }
 }
