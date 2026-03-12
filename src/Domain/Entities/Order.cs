@@ -5,11 +5,11 @@ namespace Domain.Entities;
 
 public class Order
 {
-    public int Id;
-    public string CustomerName;
-    public string ProductName;
-    public int Quantity;
-    public decimal UnitPrice;
+    private int Id;
+    private string CustomerName;
+    private string ProductName;
+    private int Quantity;
+    private decimal UnitPrice;
 
     public void CalculateTotalAndLog()
     {
